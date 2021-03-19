@@ -35,8 +35,8 @@ createJoystick = function () {
 }
 
 function move(linear_speed,angular_speed){
-    console.log(linear_speed);
-    console.log(angular_speed);
+    //console.log(linear_speed);
+    //console.log(angular_speed);
 
     var cmdVel = new ROSLIB.Topic({
         ros : ros,
@@ -44,7 +44,24 @@ function move(linear_speed,angular_speed){
         messageType : 'geometry_msgs/Twist'
     });
 
-    console.log(cmdVel);
+    cmdVel.subscribe(function (message) {
+        /* JSON data */
+        //encodedData = JSON.stringify(message);
+        //console.log(encodedData);
+
+        //console.log(message.linear);
+        //console.log(message.angular);
+        
+        document.getElementById("demo-linear-x").innerHTML = message.linear.x;
+        document.getElementById("demo-linear-y").innerHTML = message.linear.y;
+        document.getElementById("demo-linear-z").innerHTML = message.linear.z;
+        
+        document.getElementById("demo-angular-x").innerHTML = message.angular.x;
+        document.getElementById("demo-angular-y").innerHTML = message.angular.y;
+        document.getElementById("demo-angular-z").innerHTML = message.angular.z;
+    });
+
+    //console.log(cmdVel);
 
     var twist = new ROSLIB.Message({
         linear : {
