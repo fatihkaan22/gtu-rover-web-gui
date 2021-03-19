@@ -5,23 +5,49 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
+<div class="container" style="margin-bottom: 70px;">
+    <div class="row justify-content-md-center">
       <div class="col-sm">
         <h3>Joystick</h3>
         <div id="zone_joystick"></div>
       </div>
       <div class="col-sm">
-        <div id="demo-linear-x"></div>
-        <div id="demo-linear-y"></div>
-        <div id="demo-linear-z"></div>
-        <hr>
-        <div id="demo-angular-x"></div>
-        <div id="demo-angular-y"></div>
-        <div id="demo-angular-z"></div>
+        <button onclick="getJointStates();" type="button" class="btn btn-primary">Get JointStates Values</button>
       </div>
       <div class="col-sm">
-        One of three columns
+        <button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>
+        <p id="pp">Test</p>
       </div>
     </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm">
+      <h3></h3>
+      <p id="demo-linear-x"></p>
+      <p id="demo-linear-y"></p>
+      <p id="demo-linear-z"></p>
+      <p id="demo-angular-x"></p>
+      <p id="demo-angular-y"></p>
+      <p id="demo-angular-z"></p>
+    </div>
+
+    <div class="col-sm">
+      <p id="joint-0"></p>
+      <p id="joint-1"></p>
+      <p id="joint-2"></p>
+      <p id="joint-3"></p>
+    </div>
+
+    <div class="col-sm">
+      <p id="orientation-x"></p>
+      <p id="orientation-y"></p>
+      <p id="orientation-z"></p>
+      <p id="orientation-w"></p>
+      <p id="position-x"></p>
+      <p id="position-y"></p>
+      <p id="position-z"></p>
+    </div>
+  </div>
 </div>
