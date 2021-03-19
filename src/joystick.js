@@ -1,11 +1,11 @@
 createJoystick = function () {
     var options = {
       zone: document.getElementById('zone_joystick'),
-      threshold: 0.1,
-      position: { left: 50 + '%' },
+      threshold: 0.2,
+      position: { left: 20 + '%' },
       mode: 'static',
-      size: 150,
-      color: '#000000',
+      size: 120,
+      color: '#431b4a',
     };
     manager = nipplejs.create(options);
 
@@ -40,9 +40,11 @@ function move(linear_speed,angular_speed){
 
     var cmdVel = new ROSLIB.Topic({
         ros : ros,
-        name : '/cmd_vel',
+        name : '/leo/leo_velocity_controller/cmd_vel',
         messageType : 'geometry_msgs/Twist'
     });
+
+    console.log(cmdVel);
 
     var twist = new ROSLIB.Message({
         linear : {
