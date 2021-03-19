@@ -41,3 +41,30 @@ function getJointStates(){
         jointStates.unsubscribe();
     });
 }
+
+function getX(){
+    var odom = new ROSLIB.Topic({
+        ros : ros,
+        name : '/leo/leo_velocity_controller/odom',
+        messageType : 'nav_msgs/Odometry'
+    });
+
+    odom.subscribe(function (message){
+        var pose = message.pose.pose;
+        var orientation = pose.orientation;
+        var position = pose.position;
+
+        console.log(message);
+
+        console.log("Orientation X : %s",orientation.x);
+        console.log("Orientation Y : %s",orientation.y);
+        console.log("Orientation Z : %s",orientation.z);
+        console.log("Orientation W : %s",orientation.w);
+        
+        console.log("Position X : %s",position.x);
+        console.log("Position Y : %s",position.y);
+        console.log("Position Z : %s",position.z);
+
+        odom.unsubscribe();
+    });
+}
