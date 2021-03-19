@@ -52,13 +52,13 @@ function move(linear_speed,angular_speed){
         //console.log(message.linear);
         //console.log(message.angular);
         
-        document.getElementById("demo-linear-x").innerHTML = message.linear.x;
-        document.getElementById("demo-linear-y").innerHTML = message.linear.y;
-        document.getElementById("demo-linear-z").innerHTML = message.linear.z;
+        document.getElementById("demo-linear-x").innerHTML = "Linear X : " + message.linear.x;
+        document.getElementById("demo-linear-y").innerHTML = "Linear Y : " + message.linear.y;
+        document.getElementById("demo-linear-z").innerHTML = "Linear Z : " + message.linear.z;
         
-        document.getElementById("demo-angular-x").innerHTML = message.angular.x;
-        document.getElementById("demo-angular-y").innerHTML = message.angular.y;
-        document.getElementById("demo-angular-z").innerHTML = message.angular.z;
+        document.getElementById("demo-angular-x").innerHTML = "Angular X : " + message.angular.x;
+        document.getElementById("demo-angular-y").innerHTML = "Angular Y : " + message.angular.y;
+        document.getElementById("demo-angular-z").innerHTML = "Angular Z : " + message.angular.z;
     });
 
     //console.log(cmdVel);

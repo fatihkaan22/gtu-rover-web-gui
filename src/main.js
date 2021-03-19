@@ -14,9 +14,33 @@ ros.on('close',function(){
     console.log('Close');
 });
 
-/*const interval = setInterval(function() {
+// Refresh values for every 5000 miliseconds (5 sn)
+const interval = setInterval(function() {
+    //getCmdVel();
+}, 5000);
 
-}, 5000);*/
+/* Doesn't work, i don't know why */
+function getCmdVel(){
+    var cmdVel = new ROSLIB.Topic({
+        ros : ros,
+        name : '/leo/leo_velocity_controller/cmd_vel',
+        messageType : 'geometry_msgs/Twist'
+    });
+
+    cmdVel.subscribe(function (message) {
+        console.log(message);
+
+        document.getElementById("demo-linear-x").innerHTML = "Linear X : " + message.linear.x;
+        document.getElementById("demo-linear-y").innerHTML = "Linear Y : " + message.linear.y;
+        document.getElementById("demo-linear-z").innerHTML = "Linear Z : " + message.linear.z;
+        
+        document.getElementById("demo-angular-x").innerHTML = "Angular X : " + message.angular.x;
+        document.getElementById("demo-angular-y").innerHTML = "Angular Y : " + message.angular.y;
+        document.getElementById("demo-angular-z").innerHTML = "Angular Z : " + message.angular.z;
+    
+        cmdVel.unsubscribe();
+    });
+}
 
 function getJointStates(){
     var jointStates = new ROSLIB.Topic({
@@ -33,16 +57,20 @@ function getJointStates(){
         console.log(message);
         
         for(let i=0;i<names.length;++i){
+            document.getElementById("joint-"+i).innerHTML = names[i] + ": "
+                +  positions[i] + "(Pos) - " + velocities[i] + "(Vel)";
+            
+            /*
             console.log(names[i]);
             console.log(positions[i]);
             console.log(velocities[i]);
+            */
         }
-
         jointStates.unsubscribe();
     });
 }
 
-function getX(){
+function getOdom(){
     var odom = new ROSLIB.Topic({
         ros : ros,
         name : '/leo/leo_velocity_controller/odom',
@@ -56,6 +84,16 @@ function getX(){
 
         console.log(message);
 
+        document.getElementById("orientation-x").innerHTML = "Orientation X: " + orientation.x;
+        document.getElementById("orientation-y").innerHTML = "Orientation Y: " + orientation.y;
+        document.getElementById("orientation-z").innerHTML = "Orientation Z: " + orientation.z;
+        document.getElementById("orientation-w").innerHTML = "Orientation W: " + orientation.w;
+
+        document.getElementById("position-x").innerHTML = "Position X: " + position.x;
+        document.getElementById("position-y").innerHTML = "Position Y: " + position.y;
+        document.getElementById("position-z").innerHTML = "Position Z: " + position.z;
+
+        /*
         console.log("Orientation X : %s",orientation.x);
         console.log("Orientation Y : %s",orientation.y);
         console.log("Orientation Z : %s",orientation.z);
@@ -64,7 +102,7 @@ function getX(){
         console.log("Position X : %s",position.x);
         console.log("Position Y : %s",position.y);
         console.log("Position Z : %s",position.z);
-
+        */
         odom.unsubscribe();
     });
 }
