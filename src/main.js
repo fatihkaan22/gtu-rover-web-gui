@@ -23,7 +23,7 @@ const interval = setInterval(function() {
 function getCmdVel(){
     var cmdVel = new ROSLIB.Topic({
         ros : ros,
-        name : '/leo/leo_velocity_controller/cmd_vel',
+        name : '/cmd_vel',
         messageType : 'geometry_msgs/Twist'
     });
 
@@ -45,7 +45,7 @@ function getCmdVel(){
 function getJointStates(){
     var jointStates = new ROSLIB.Topic({
         ros : ros,
-        name : '/leo/joint_states',
+        name : '/joint_states',
         messageType : 'sensor_msgs/JointState'
     });
 
@@ -104,5 +104,49 @@ function getOdom(){
         console.log("Position Z : %s",position.z);
         */
         odom.unsubscribe();
+    });
+}
+
+function getIMU(){
+    var imu = new ROSLIB.Topic({
+        ros : ros,
+        name : '/zed2/imu/data',
+        messageType : 'sensor_msgs/Imu'
+    });
+
+    imu.subscribe(function (message) {
+        console.log(message);
+
+        imu.unsubscribe();
+    });
+}
+
+function getLeftCamera(){
+    var leftCamera = new ROSLIB.Topic({
+        ros : ros,
+        name : '/zed2/left/image_rect_color/compressed',
+        messageType : 'sensor_msgs/CompressedImage'
+    });
+
+    leftCamera.subscribe(function (message){
+        //console.log(message);
+        document.getElementById("image").src = "data:image/png;base64," + message.data;
+
+        leftCamera.unsubscribe();
+    });
+}
+
+function getRightCamera(){
+    var rightCamera = new ROSLIB.Topic({
+        ros : ros,
+        name : '/zed2/right/image_rect_color/compressed',
+        messageType : 'sensor_msgs/CompressedImage'
+    });
+
+    rightCamera.subscribe(function (message){
+        //console.log(message);
+        document.getElementById("image2").src = "data:image/png;base64," + message.data;
+
+        rightCamera.unsubscribe();
     });
 }

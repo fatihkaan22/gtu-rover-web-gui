@@ -1,9 +1,4 @@
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">GTU Rover WEB GUI</h1>
-      <p class="lead">The gui is not ready yet.</p>
-    </div>
-</div>
+<app-navbar></app-navbar>
 
 <div class="container" style="margin-bottom: 70px;">
     <div class="row justify-content-md-center">
@@ -16,6 +11,9 @@
       </div>
       <div class="col-sm">
         <button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>
+        <button onclick="getIMU();" type="button" class="btn btn-primary">Get IMU Values</button>
+        <button onclick="getLeftCamera();" type="button" class="btn btn-primary">Get Left Camera Values</button>
+        <button onclick="getRightCamera();" type="button" class="btn btn-primary">Get Right Camera Values</button>
         <p id="pp">Test</p>
       </div>
     </div>
@@ -38,6 +36,8 @@
       <p id="joint-1"></p>
       <p id="joint-2"></p>
       <p id="joint-3"></p>
+      <p id="joint-4"></p>
+      <p id="joint-5"></p>
     </div>
 
     <div class="col-sm">
@@ -50,4 +50,9 @@
       <p id="position-z"></p>
     </div>
   </div>
+</div>
+
+<div class="container">
+  <img onload="getLeftCamera()" id="image" style="width: 30%;">
+  <img onload="getRightCamera()" on id="image2" style="width: 30%;">
 </div>
