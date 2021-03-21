@@ -40,7 +40,7 @@ function move(linear_speed,angular_speed){
 
     var cmdVel = new ROSLIB.Topic({
         ros : ros,
-        name : '/leo/leo_velocity_controller/cmd_vel',
+        name : '/cmd_vel',
         messageType : 'geometry_msgs/Twist'
     });
 
