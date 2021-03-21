@@ -129,8 +129,7 @@ function getLeftCamera(){
     });
 
     leftCamera.subscribe(function (message){
-        console.log(message);
-        
+        //console.log(message);
         document.getElementById("image").src = "data:image/png;base64," + message.data;
 
         leftCamera.unsubscribe();
@@ -145,8 +144,7 @@ function getRightCamera(){
     });
 
     rightCamera.subscribe(function (message){
-        console.log(message);
-        
+        //console.log(message);
         document.getElementById("image2").src = "data:image/png;base64," + message.data;
 
         rightCamera.unsubscribe();
