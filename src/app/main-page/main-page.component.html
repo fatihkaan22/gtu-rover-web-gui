@@ -1,3 +1,5 @@
+<body onload="mainPageOnLoad();">
+
 <app-navbar></app-navbar>
 
 <div class="container-xxl" style="margin-bottom: 70px;">
@@ -15,8 +17,31 @@
 
       <hr style="margin: 2rem;">
 
-      <h3 style="text-align: center;">Add Waypoint</h3>
-        
+      <h3 style="text-align: center; margin-bottom: 1rem;">Add Waypoint</h3>
+
+      <div class="row justify-content-center" style="margin-bottom: 1rem;">
+        <label for="colorInput" class="col-sm-4 form-label" style="margin: auto; text-align: center;">Color : </label>
+        <div class="col-sm-8">
+          <input type="color" class="form-control form-control-color" id="colorInput" value="#833e80" title="Choose your color">
+        </div>
+      </div>
+      
+      <div class="row justify-content-center" style="margin-bottom: 1rem;">
+        <label for="textAreaX" class="col-sm-4 form-label" style="margin: auto; text-align: center;">X : </label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="" id="textAreaX" name="onlyNumbers" onkeypress="return isNumber(event)" onpaste="return false;"/>
+        </div>
+      </div>
+
+      <div class="row justify-content-center" style="margin-bottom: 1rem;">
+        <label for="textAreaY" class="col-sm-4 form-label" style="margin: auto; text-align: center;">Y : </label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="" id="textAreaY" name="onlyNumbers" onkeypress="return isNumber(event)" onpaste="return false;"/>
+        </div>
+      </div>
+
+      <button onclick="drawWaypoint();" type="button" class="btn btn-primary" style="background-color: purple; width: 50%; text-align: center; margin: auto;">Add</button>
+
       </div>
     </div>
 
@@ -25,9 +50,10 @@
       <!--<button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>-->
         <img style="width: 44rem; margin: 0 auto; padding: 1rem; position: relative;" src="assets/images/map.jpg" class="card-img-top" alt="...">
         
-        <div class="circle"></div>
+        <div class="start-circle"></div>
         <p class="start-text">Start</p>
-        <div class="hexagon"></div>
+
+        <div id="points"></div>
       </div>
     </div>
 
@@ -118,3 +144,5 @@
     </div>
   </div>
 </div>
+
+</body>

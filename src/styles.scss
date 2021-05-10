@@ -4,36 +4,38 @@ $bottom_left_x : 75px;
 $bottom_left_y : 20px;
 $starting_point_x : 120px;
 $starting_point_y : 400px;
-$height_constant : 13px;
-$width_constant : 10.8px;
-$y : 0;
-$x : 0;
+$height_constant : 26px;
+$width_constant : 13.5px;
+$y : 1;
+$x : 1;
 
 $text_position_x : 10px;
 $text_position_y : 35px;
 
-.start-text{
-    left: $starting_point_x + $width_constant*$x - $text_position_x;
-    bottom: $starting_point_y + $height_constant*$y - $text_position_y;
-    z-index: 3;
-    position: absolute;
-    color: red;
-}
+$start_circle_color : #9fffc2;
 
-.circle {
-    left: $starting_point_x + $width_constant*$x;
-    bottom: $starting_point_y + $height_constant*$y;
+.start-circle {
+    left: $starting_point_x;
+    bottom: $starting_point_y;
     z-index: 2;
     position: absolute;
     width: 15px; 
     height: 15px;
     border-radius: 50%;
-    background-color: red;
+    background-color: $start_circle_color;
+}
+
+.start-text{
+    left: $starting_point_x - $text_position_x;
+    bottom: $starting_point_y - $text_position_y;
+    z-index: 3;
+    position: absolute;
+    color: $start_circle_color;
 }
 
 .hexagon {
-    left: $starting_point_x + $width_constant*$x;
-    bottom: $starting_point_y + $height_constant*$y;
+    //left: $starting_point_x + $width_constant*$x;
+    //bottom: $starting_point_y + $height_constant*$y;
     z-index: 2;
     position: absolute;
     width: 15px; 
