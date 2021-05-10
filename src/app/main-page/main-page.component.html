@@ -1,23 +1,82 @@
 <app-navbar></app-navbar>
 
+<div class="container-xxl" style="margin-bottom: 70px;">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-sm-center" style="margin-right: 3rem;">
+      <div class="card" style="padding: 3rem;">
+      <!--<button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>-->
+      <h3 style="text-align: center;">Current Speed</h3>
+      <h2 style="text-align: center;">0 m/s</h2>
+
+      <hr style="margin: 2rem;">
+
+      <h3 style="text-align: center;">Status</h3>
+      <h2 style="text-align: center; color: red">IDLE</h2>
+
+      <hr style="margin: 2rem;">
+
+      <h3 style="text-align: center;">Add Waypoint</h3>
+        
+      </div>
+    </div>
+
+    <div class="col-sm-center">
+      <div class="card">
+      <!--<button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>-->
+        <img style="width: 44rem; margin: 0 auto; padding: 1rem; position: relative;" src="assets/images/map.jpg" class="card-img-top" alt="...">
+        
+        <div class="circle"></div>
+        <p class="start-text">Start</p>
+        <div class="hexagon"></div>
+      </div>
+    </div>
+
+    <div class="col-sm-center" style="margin-left: 3rem;">
+      <div class="card" style="width: 22rem; padding: 2rem;">
+        <h3 style="text-align: center;">Pitch</h3>
+        <img id="rover-1" style="width: 13rem; margin: 0 auto; padding: 1rem;" src="assets/images/image.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="progress" style="margin-bottom: 0.4rem;">
+            <div id="progress-bar-1" class="progress-bar" role="progressbar" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100" style="width:50%; background-color: purple !important;">
+            </div>
+          </div>
+          <p id="pitch-p" style="text-align: center; margin-bottom: 4rem;">0.5</p>
+        </div>
+
+        <!--<hr style="border: 1px solid purple; border-radius: 5px;">-->
+        <h3 style="text-align: center;">Roll</h3>
+        <img id="rover-2" style="width: 13rem; margin: 0 auto; padding: 1rem;" src="assets/images/image2.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="progress" style="margin-bottom: 0.4rem;">
+            <div id="progress-bar-2" class="progress-bar" role="progressbar" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100" style="width:50%; background-color: purple !important;">
+            </div>
+          </div>
+          <p id="roll-p" style="text-align: center;">0.5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---
 <div class="container" style="margin-bottom: 70px;">
-    <div class="row justify-content-md-center">
-      <div class="col-sm">
+    <div class="row justify-content-md-around align-items-center">
+      <div class="col-sm-center">
         <h3>Joystick</h3>
         <div id="zone_joystick"></div>
       </div>
-      <div class="col-sm">
+      <div class="col-sm-center">
         <button onclick="getJointStates();" type="button" class="btn btn-primary">Get JointStates Values</button>
       </div>
-      <div class="col-sm">
-        <button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>
-        <button onclick="getIMU();" type="button" class="btn btn-primary">Get IMU Values</button>
-        <button onclick="getLeftCamera();" type="button" class="btn btn-primary">Get Left Camera Values</button>
-        <button onclick="getRightCamera();" type="button" class="btn btn-primary">Get Right Camera Values</button>
-        <p id="pp">Test</p>
+      <div class="col-sm-center">
+        <!-- <button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>
+        <button onclick="calculateEuler();" type="button" class="btn btn-primary">Get IMU Values</button>
       </div>
     </div>
 </div>
+--->
 
 <div class="container">
   <div class="row justify-content-md-center">
@@ -40,6 +99,7 @@
       <p id="joint-5"></p>
     </div>
 
+    <!--
     <div class="col-sm">
       <p id="orientation-x"></p>
       <p id="orientation-y"></p>
@@ -49,10 +109,12 @@
       <p id="position-y"></p>
       <p id="position-z"></p>
     </div>
-  </div>
-</div>
+    -->
 
-<div class="container">
-  <img onload="getLeftCamera()" id="image" style="width: 30%;">
-  <img onload="getRightCamera()" on id="image2" style="width: 30%;">
+    <div class="col-sm">
+      <p id="yaw"></p>
+      <p id="pitch"></p>
+      <p id="roll"></p>
+    </div>
+  </div>
 </div>

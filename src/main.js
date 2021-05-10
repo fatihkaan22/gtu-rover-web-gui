@@ -15,9 +15,9 @@ ros.on('close',function(){
 });
 
 // Refresh values for every 5000 miliseconds (5 sn)
-const interval = setInterval(function() {
+/*const interval = setInterval(function() {
     //getCmdVel();
-}, 5000);
+}, 5000);*/
 
 /* Doesn't work, i don't know why */
 function getCmdVel(){
@@ -70,43 +70,6 @@ function getJointStates(){
     });
 }
 
-function getOdom(){
-    var odom = new ROSLIB.Topic({
-        ros : ros,
-        name : '/leo/leo_velocity_controller/odom',
-        messageType : 'nav_msgs/Odometry'
-    });
-
-    odom.subscribe(function (message){
-        var pose = message.pose.pose;
-        var orientation = pose.orientation;
-        var position = pose.position;
-
-        console.log(message);
-
-        document.getElementById("orientation-x").innerHTML = "Orientation X: " + orientation.x;
-        document.getElementById("orientation-y").innerHTML = "Orientation Y: " + orientation.y;
-        document.getElementById("orientation-z").innerHTML = "Orientation Z: " + orientation.z;
-        document.getElementById("orientation-w").innerHTML = "Orientation W: " + orientation.w;
-
-        document.getElementById("position-x").innerHTML = "Position X: " + position.x;
-        document.getElementById("position-y").innerHTML = "Position Y: " + position.y;
-        document.getElementById("position-z").innerHTML = "Position Z: " + position.z;
-
-        /*
-        console.log("Orientation X : %s",orientation.x);
-        console.log("Orientation Y : %s",orientation.y);
-        console.log("Orientation Z : %s",orientation.z);
-        console.log("Orientation W : %s",orientation.w);
-        
-        console.log("Position X : %s",position.x);
-        console.log("Position Y : %s",position.y);
-        console.log("Position Z : %s",position.z);
-        */
-        odom.unsubscribe();
-    });
-}
-
 function getIMU(){
     var imu = new ROSLIB.Topic({
         ros : ros,
@@ -121,32 +84,3 @@ function getIMU(){
     });
 }
 
-function getLeftCamera(){
-    var leftCamera = new ROSLIB.Topic({
-        ros : ros,
-        name : '/zed2/left/image_rect_color/compressed',
-        messageType : 'sensor_msgs/CompressedImage'
-    });
-
-    leftCamera.subscribe(function (message){
-        //console.log(message);
-        document.getElementById("image").src = "data:image/png;base64," + message.data;
-
-        leftCamera.unsubscribe();
-    });
-}
-
-function getRightCamera(){
-    var rightCamera = new ROSLIB.Topic({
-        ros : ros,
-        name : '/zed2/right/image_rect_color/compressed',
-        messageType : 'sensor_msgs/CompressedImage'
-    });
-
-    rightCamera.subscribe(function (message){
-        //console.log(message);
-        document.getElementById("image2").src = "data:image/png;base64," + message.data;
-
-        rightCamera.unsubscribe();
-    });
-}

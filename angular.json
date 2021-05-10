@@ -40,7 +40,8 @@
               "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/main.js",
-              "src/joystick.js"
+              "src/joystick.js",
+              "src/quaternion.js"
             ]
           },
           "configurations": {

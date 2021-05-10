@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+
+$bottom_left_x : 75px;
+$bottom_left_y : 20px;
+$starting_point_x : 120px;
+$starting_point_y : 400px;
+$height_constant : 13px;
+$width_constant : 10.8px;
+$y : 0;
+$x : 0;
+
+$text_position_x : 10px;
+$text_position_y : 35px;
+
+.start-text{
+    left: $starting_point_x + $width_constant*$x - $text_position_x;
+    bottom: $starting_point_y + $height_constant*$y - $text_position_y;
+    z-index: 3;
+    position: absolute;
+    color: red;
+}
+
+.circle {
+    left: $starting_point_x + $width_constant*$x;
+    bottom: $starting_point_y + $height_constant*$y;
+    z-index: 2;
+    position: absolute;
+    width: 15px; 
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.hexagon {
+    left: $starting_point_x + $width_constant*$x;
+    bottom: $starting_point_y + $height_constant*$y;
+    z-index: 2;
+    position: absolute;
+    width: 15px; 
+    height: 8.66px;
+    background-color: #64C7CC;
+    margin: 4.33px 0;
+}
+  
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+}
+  
+.hexagon:before {
+    bottom: 100%;
+    border-bottom: 4.33px solid #64C7CC;
+}
+
+.hexagon:after {
+    top: 100%;
+    width: 0;
+    border-top: 4.33px solid #64C7CC;
+}
