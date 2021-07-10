@@ -41,7 +41,8 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/main.js",
               "src/joystick.js",
-              "src/firstapp.js"
+              "src/firstapp.js",
+              "src/map.js"
             ]
           },
           "configurations": {
