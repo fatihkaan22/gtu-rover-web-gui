@@ -14,6 +14,11 @@ $text_position_y : 35px;
 
 $start_circle_color : #9fffc2;
 
+.row{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
 .start-circle {
     left: $starting_point_x;
     bottom: $starting_point_y;

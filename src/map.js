@@ -1,10 +1,10 @@
 // Height and Width of Image
-var Height = 650;
-var Width = 540;
+var Width = 1338;
+var Height = 1570;
 
 // Map is 40x40 m
-var MapHeight = 40;
-var MapWidth = 40;
+var MapWidth = 134;
+var MapHeight = 157;
 
 var starting_point_x = 120;
 var starting_point_y = 400;
