@@ -4,27 +4,12 @@ var Height = 1570;
 
 var MapScale = 2;
 
-var offset = 10;
+var offset = 5;
 var startingPointX = 0;
 var startingPointY = 0;
 
-/*var points = [
-    [7.31,0.00],
-    [7.19,7.55],
-    [18.85,-3.59],
-    [33.77,6.41],
-    [13.22,-13.61],
-    [21.01,13.21],
-    [20.96,3.36],
-    [20.40,-19.41],
-    [14.77,6.89],
-    [22.46,-10.36],
-    [31.56,-18.81],
-    [29.92,11.44],
-    [32.79,-6.79],
-    [2.04,-12.02],
-    [7.63,13.24]
-];*/
+var points = [];
+var totalPoint = 0;
 
 //var py=(ch - ((y/ch*ih) - event.pageY))
 
@@ -41,7 +26,7 @@ $(document).ready(function() {
         var ih=this.naturalHeight
         var scale = iw/cw;
         var px=((x/cw*iw) / scale)
-        var py=(ch - ((y/ch*ih) / scale) + top);
+        var py=(ch - ((y/ch*ih) / scale))
 
         //alert("Coordinates : ("+px+","+py+")\nClientImage : ("+cw+" x "+ch+")\nNaturalImage : ("+iw+" x "+ih+")\n")
         drawWaypointWithArguments(px,py)
@@ -50,9 +35,9 @@ $(document).ready(function() {
         var distanceFromStartingPointY = py * MapScale - startingPointY;
         var distance = Math.sqrt(Math.pow(distanceFromStartingPointX,2) + Math.pow(distanceFromStartingPointY,2)); 
 
-        document.getElementById("distance-x").innerHTML = Math.round(distanceFromStartingPointX);
-        document.getElementById("distance-y").innerHTML = Math.round(distanceFromStartingPointY);
-        document.getElementById("distance").innerHTML = Math.round(distance);
+        document.getElementById("distance-x").innerHTML = Math.round(distanceFromStartingPointX) + " px";
+        document.getElementById("distance-y").innerHTML = Math.round(distanceFromStartingPointY) + " px";
+        document.getElementById("distance").innerHTML = Math.round(distance) + " px";
     });
 });
 
@@ -104,14 +89,37 @@ function drawWaypointWithArguments(x,y){
 
     var color = "blue";
 
-    var pointsDiv = document.getElementById("points");
-
     var hex = document.createElement("div");
     hex.classList.add("start-circle");
+    hex.id = "point"+totalPoint;
 
-    hex.style.left = (startingPointX + x - 10) + "px";
-    hex.style.bottom = (startingPointY + y - 10) + "px";
+    hex.style.left = (startingPointX + x - offset) + "px";
+    hex.style.bottom = (startingPointY + y - offset) + "px";
     hex.style.backgroundColor = color;
 
-    pointsDiv.appendChild(hex);
+    myNode.appendChild(hex);
+}
+
+function AddToWaypoints(){
+    const myNode = document.getElementById("saved_points");
+
+    const point = document.getElementById("point"+(totalPoint++));
+
+    var x = point.style.left;
+    var y = point.style.bottom;
+
+    x = x.substr(0,x.length-2);
+    y = y.substr(0,y.length-2);
+
+    x *= MapScale;
+    y *= MapScale;
+
+    x += offset*MapScale;
+    y += offset*MapScale;
+
+    points.push([Math.round(x),Math.round(y)]);
+
+    console.log(points);
+
+    myNode.appendChild(point);
 }
