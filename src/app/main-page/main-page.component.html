@@ -5,7 +5,7 @@
 <div class="container-xxl" style="margin-bottom: 70px;">
   <div class="row justify-content-center align-items-center">
     <div class="col-sm-center" style="margin-right: 3rem;">
-      <div class="card" style="padding: 3rem;">
+      <div class="card" style="padding-top: 3rem; padding-bottom: 3rem; padding-left: 2rem; padding-right: 2rem;">
       <!--<button onclick="getOdom();" type="button" class="btn btn-primary">Get Odom Values</button>-->
       <h3 style="text-align: center;">Current Speed</h3>
       <h2 style="text-align: center;">0 m/s</h2>
@@ -17,6 +17,7 @@
 
       <hr style="margin: 2rem;">
 
+      <!--
       <h3 style="text-align: center; margin-bottom: 1rem;">Add Waypoint</h3>
 
       <div class="row justify-content-center" style="margin-bottom: 1rem;">
@@ -41,14 +42,42 @@
       </div>
 
       <button onclick="drawWaypoint();" type="button" class="btn btn-primary" style="background-color: purple; width: 50%; text-align: center; margin: auto;">Add</button>
+      -->
+
+      <div class="row justify-content-center" style="margin-bottom: 1rem;">
+        <div class="col-sm-7">
+          <p>Distance-X: </p>
+        </div>
+        <div id="distance-x" class="col-sm-5">
+          <p>0.0</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center" style="margin-bottom: 1rem;">
+        <div class="col-sm-7">
+          <p>Distance-Y: </p>
+        </div>
+        <div id="distance-y" class="col-sm-5">
+          <p>0.0</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center" style="margin-bottom: 1rem;">
+        <div class="col-sm-7">
+          <p>Distance: </p>
+        </div>
+        <div id="distance" class="col-sm-5">
+          <p>0.0</p>
+        </div>
+      </div>
 
       </div>
     </div>
 
     <div class="col-sm-center">
       <div class="card">
-        <img style="width: 669px; height: 785px; margin: 0 auto; padding: 1rem; position: relative;" src="assets/images/map_compressed.jpg" class="card-img-top" alt="...">
-        
+        <img id="map-image" style="width: 669px; height: 785px; margin: 0 auto; position: relative;" src="assets/images/map_compressed.jpg" class="card-img-top" ismap>
+
         <div class="start-circle"></div>
         <p class="start-text">Start</p>
 

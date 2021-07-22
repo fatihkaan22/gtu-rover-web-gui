@@ -1,16 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
+$offset : 0px;
 $bottom_left_x : 75px;
 $bottom_left_y : 20px;
-$starting_point_x : 120px;
-$starting_point_y : 400px;
+$starting_point_x : 0;
+$starting_point_y : 0;
 $height_constant : 26px;
 $width_constant : 13.5px;
 $y : 1;
 $x : 1;
 
-$text_position_x : 10px;
-$text_position_y : 35px;
+$text_position_x : 0px;
+$text_position_y : 0px;
 
 $start_circle_color : #9fffc2;
 
@@ -20,8 +21,8 @@ $start_circle_color : #9fffc2;
 }
 
 .start-circle {
-    left: $starting_point_x;
-    bottom: $starting_point_y;
+    left: $starting_point_x + $offset;
+    bottom: $starting_point_y + $offset;
     z-index: 2;
     position: absolute;
     width: 15px; 
