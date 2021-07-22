@@ -40,7 +40,9 @@
               "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/main.js",
-              "src/joystick.js"
+              "src/joystick.js",
+              "src/firstapp.js",
+              "src/map.js"
             ]
           },
           "configurations": {
